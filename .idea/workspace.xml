@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e53e17b3-c6d2-4619-afef-d7cfb7ca0b5c" name="Changes" comment=".gitignore" />
+    <list default="true" id="e53e17b3-c6d2-4619-afef-d7cfb7ca0b5c" name="Changes" comment=".gitignore">
+      <change afterPath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/LevelEditorScene.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,6 +79,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Mario.main" />
+      <option name="VM_PARAMETERS" value="-ea" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -121,6 +126,11 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.Mario [dependencies]" />
+      <item itemvalue="Gradle.Mario [test]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -145,7 +155,7 @@
       <workItem from="1669837287748" duration="1643000" />
       <workItem from="1669908126137" duration="2683000" />
       <workItem from="1669910913558" duration="2553000" />
-      <workItem from="1670002714042" duration="1260000" />
+      <workItem from="1670002714042" duration="3093000" />
     </task>
     <task id="LOCAL-00001" summary=".gitignore">
       <created>1670003282085</created>
