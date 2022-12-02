@@ -12,3 +12,6 @@ build.gradle
 
 # ignore all files in the build/ directory
 build/**
+
+# ignore gradle
+.gradle
