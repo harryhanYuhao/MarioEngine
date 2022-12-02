@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e53e17b3-c6d2-4619-afef-d7cfb7ca0b5c" name="Changes" comment=".gitignore">
-      <change afterPath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jade/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/LevelEditorScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +84,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="renderer.Test" />
+      <module name="Mario.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Mario [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -127,6 +140,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.Test" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.Mario [dependencies]" />
       <item itemvalue="Gradle.Mario [test]" />
@@ -134,6 +148,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Gradle.Mario [test]" />
         <item itemvalue="Gradle.Mario [dependencies]" />
       </list>
@@ -155,7 +170,7 @@
       <workItem from="1669837287748" duration="1643000" />
       <workItem from="1669908126137" duration="2683000" />
       <workItem from="1669910913558" duration="2553000" />
-      <workItem from="1670002714042" duration="3093000" />
+      <workItem from="1670002714042" duration="5679000" />
     </task>
     <task id="LOCAL-00001" summary=".gitignore">
       <created>1670003282085</created>

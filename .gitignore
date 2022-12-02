@@ -18,3 +18,5 @@ build/**
 
 # ignore out
 out
+
+out/production/**
