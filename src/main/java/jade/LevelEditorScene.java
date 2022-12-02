@@ -109,6 +109,7 @@ public class LevelEditorScene extends Scene {
 
         // ===============================================================
         // Generate VAO, VBO, and EBO, and send to GPU
+        // VAO = Vertex Array Object, VBO = Vertex Buffer Object, EBO = Element Buffer Object
         // ===============================================================
 
         vaoID = glGenVertexArrays();
