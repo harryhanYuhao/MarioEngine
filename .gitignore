@@ -1,0 +1,14 @@
+# ignore all .a files
+*.a
+
+# ignore doc/notes.txt, not not doc/server/arch.txt
+doc/*.txt
+
+# ignore all pdf files in the doc/ directory and any of its sub directories
+doc/**/*/pdf
+
+# ignore build.gradle
+build.gradle
+
+# ignore all files in the build/ directory
+build/**
