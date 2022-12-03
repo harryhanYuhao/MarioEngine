@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e53e17b3-c6d2-4619-afef-d7cfb7ca0b5c" name="Changes" comment=".gitignore">
+      <change afterPath="$PROJECT_DIR$/src/main/java/jade/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/shaders/default.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/assets/shaders/default.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/jade/LevelEditorScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/jade/LevelEditorScene.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/jade/Scene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/jade/Scene.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jade/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/LevelEditorScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Scene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,11 +39,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -55,21 +60,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -170,7 +175,8 @@
       <workItem from="1669837287748" duration="1643000" />
       <workItem from="1669908126137" duration="2683000" />
       <workItem from="1669910913558" duration="2553000" />
-      <workItem from="1670002714042" duration="5679000" />
+      <workItem from="1670002714042" duration="6347000" />
+      <workItem from="1670090778090" duration="1824000" />
     </task>
     <task id="LOCAL-00001" summary=".gitignore">
       <created>1670003282085</created>
