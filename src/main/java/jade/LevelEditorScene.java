@@ -4,6 +4,7 @@ package jade;
 import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
 import renderer.Shader;
+import util.Time;
 
 import java.awt.event.KeyEvent;
 import java.nio.FloatBuffer;
@@ -18,12 +19,12 @@ public class LevelEditorScene extends Scene {
 
     private float [] vertexArray = {
             // positions         // colors
-             100f, -0.5f, 0.0f,   1.0f, 0.0f, 0.0f, 1.0f, // bottom right 0
-             0f,  50f, 0.0f,   0.0f, 1.0f, 0.0f, 1.0f, // top left     1
-             500.5f,  50f, 0.0f,   0.0f, 0.0f, 1.0f, 1.0f, // top right    2
-             0f, -0.5f, 0.0f,   1.0f, 1.0f, 0.0f, 1.0f, // bottom left  3
+             100f, 100f, 0.0f,   1.0f, 0.0f, 0.0f, 1.0f, // bottom right 0
+             0f,  0f, 0.0f,   0.0f, 1.0f, 0.0f, 1.0f, // top left     1
+             0f,  0f, 0.0f,   0.0f, 0.0f, 1.0f, 1.0f, // top right    2
+             0f, 200f, 0.0f,   1.0f, 1.0f, 0.0f, 1.0f, // bottom left  3
     };
-
+    // Position of vertexArray are defined as (x,y,z). origin is in bottom left. x is right, y is up.
     // IMPORTANT: Must be in counter-clockwise order
     private int [] elementArray = {
             2, 1, 0, // top right triangle
@@ -40,8 +41,8 @@ public class LevelEditorScene extends Scene {
     @Override
     public void init(){
         this.camera = new Camera(new Vector2f()); // Default camera position is (0, 0)
-      defaultshader = new Shader("assets/shaders/default.glsl");
-      defaultshader.compile_link();
+        defaultshader = new Shader("assets/shaders/default.glsl");
+        defaultshader.compile_link();
 
         // ===============================================================
         // Generate VAO, VBO, and EBO, and send to GPU
@@ -85,10 +86,12 @@ public class LevelEditorScene extends Scene {
     @Override
     public void update(float dt){
         camera.position.x -= 50.0f * dt;
+        camera.position.y -= 50.0f * dt;
         // Bind shader program
         defaultshader.use();
         defaultshader.uploadMat4f("uProjection", camera.getProjectionMatrix());
         defaultshader.uploadMat4f("uView", camera.getViewMatrix());
+        defaultshader.uploadFloat("uTime", Time.getTime());
 
         // Bind VAO
         glBindVertexArray(vaoID);
