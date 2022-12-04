@@ -41,6 +41,8 @@ public class Texture {
                 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width.get(0), height.get(0), 0, GL_RGB, GL_UNSIGNED_BYTE, image);
             } else if (Channels.get(0) == 4){
                 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width.get(0), height.get(0), 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+            } else {
+                assert false : "Errors: (Texture) Image format not supported: unknown amount of color channels";
             }
             //glGenerateMipmap(GL_TEXTURE_2D);
         } else {
@@ -57,6 +59,5 @@ public class Texture {
     public void unbind(){
         glBindTexture(GL_TEXTURE_2D, 0);
     }
-
 
 }
