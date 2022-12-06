@@ -4,6 +4,7 @@ import components.SpriteRenderer;
 import jade.Window;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
+import util.AssetPool;
 
 import static org.lwjgl.opengl.GL15.*;
 import static org.lwjgl.opengl.GL20.*;
@@ -34,8 +35,7 @@ public class RenderBatch {
     private Shader shader;
 
     public RenderBatch(int maxBatchSize){
-        shader = new Shader("assets/shaders/default.glsl");
-        shader.compile_link();
+        shader = AssetPool.getShader("assets/shaders/default.glsl");
         this.sprites = new SpriteRenderer[maxBatchSize];
         this.maxBatchSize = maxBatchSize;
 
@@ -54,7 +54,7 @@ public class RenderBatch {
         // Allocate space for the vertices on the GPU
         vboID = glGenBuffers();
         glBindBuffer(GL_ARRAY_BUFFER, vboID);
-        glBufferData(GL_ARRAY_BUFFER, vertices.length *Float.BYTES, GL_DYNAMIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, (long) vertices.length *Float.BYTES, GL_DYNAMIC_DRAW);
 
         // Create and upload indices buffer
         int eboID = glGenBuffers();
