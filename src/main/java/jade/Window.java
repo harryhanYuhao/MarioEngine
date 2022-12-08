@@ -3,7 +3,6 @@ package jade;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
-import util.Time;
 
 import static java.sql.Types.NULL;
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
@@ -19,7 +18,6 @@ public class Window {
     public float g = 1.0f;
     public float b = 1.0f;
     public float a = 1.0f;
-    public boolean fadeToBlack = false;
     private static Window window = null;
 
     private static Scene currentScene;
@@ -116,8 +114,8 @@ public class Window {
 
 
     public void loop(){
-        float beginTime = Time.getTime();
-        float endTime;
+        double beginTime = glfwGetTime();
+        double endTime;
         float dt = -1.0f;
 
         while (!glfwWindowShouldClose(glfwWindow)){
@@ -135,8 +133,8 @@ public class Window {
 
             glfwSwapBuffers(glfwWindow);
 
-            endTime = Time.getTime();
-            dt = endTime - beginTime;
+            endTime = glfwGetTime();
+            dt = (float)(endTime - beginTime);
             beginTime = endTime;
         }
     }
