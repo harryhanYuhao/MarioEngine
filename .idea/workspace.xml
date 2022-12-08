@@ -5,16 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e53e17b3-c6d2-4619-afef-d7cfb7ca0b5c" name="Changes" comment=".gitignore">
-      <change afterPath="$PROJECT_DIR$/assets/shaders/question.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/spritesheet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/testImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/testImage2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/components/Sprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/components/Spritesheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/shaders/default.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/assets/shaders/default.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/shaders/question.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/jade/LevelEditorScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/jade/LevelEditorScene.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/jade/Scene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/jade/Scene.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/jade/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/jade/Window.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/util/Time.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/LevelEditorScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Scene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jade/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/Time.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Texture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/AssetPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AssetPool.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +198,8 @@
       <workItem from="1670356819064" duration="273000" />
       <workItem from="1670357115581" duration="1069000" />
       <workItem from="1670442191816" duration="7074000" />
-      <workItem from="1670494976192" duration="1887000" />
+      <workItem from="1670494976192" duration="3493000" />
+      <workItem from="1670529318978" duration="3929000" />
     </task>
     <task id="LOCAL-00001" summary=".gitignore">
       <created>1670003282085</created>

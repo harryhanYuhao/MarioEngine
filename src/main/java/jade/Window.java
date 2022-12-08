@@ -122,7 +122,7 @@ public class Window {
             // poll events
             glfwPollEvents();
 
-            glClearColor(r, g, b, a);
+            glClearColor(0, 0, 0, 1);
             glClear(GL_COLOR_BUFFER_BIT);
 
             if (currentScene != null){

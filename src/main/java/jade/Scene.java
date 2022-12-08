@@ -19,7 +19,6 @@ public abstract class Scene {
 
     }
 
-
     public void start(){
         for (GameObject go: gameObjects){
             go.start();
