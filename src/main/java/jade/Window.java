@@ -58,6 +58,10 @@ public class Window {
         return get().currentScene;
     }
 
+    public static float getWidth() {
+        return get().width;
+    }
+
     public void run () {
         System.out.println("Hello LWJGL" + Version.getVersion()+"!");
 
@@ -122,7 +126,7 @@ public class Window {
             // poll events
             glfwPollEvents();
 
-            glClearColor(0, 0, 0, 1);
+            glClearColor(0.1f, 0.1f, 0.1f, 0.5f);
             glClear(GL_COLOR_BUFFER_BIT);
 
             if (currentScene != null){

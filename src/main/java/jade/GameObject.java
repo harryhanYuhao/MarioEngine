@@ -28,7 +28,6 @@ public class GameObject {
                     e.printStackTrace();
                     assert false : "Error casting component";
                 }
-
             }
         }
         return null;
