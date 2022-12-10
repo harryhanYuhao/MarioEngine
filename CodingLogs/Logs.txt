@@ -1,0 +1,4 @@
+10 Dec 2022:
+Added alpha blending and z index.
+    Sprites and renderbatch constructors now take a z index parameter.
+    Sprites are rendered in the order for their z index.

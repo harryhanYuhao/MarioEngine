@@ -113,6 +113,9 @@ public class Window {
 
         GL.createCapabilities();
 
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+
         Window.changeScene(0);
     }
 
@@ -126,7 +129,7 @@ public class Window {
             // poll events
             glfwPollEvents();
 
-            glClearColor(0.1f, 0.1f, 0.1f, 0.5f);
+            glClearColor(0.5f, 0.5f, 0.5f, 0.5f);
             glClear(GL_COLOR_BUFFER_BIT);
 
             if (currentScene != null){

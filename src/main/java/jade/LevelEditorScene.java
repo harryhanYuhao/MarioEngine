@@ -23,14 +23,14 @@ public class LevelEditorScene extends Scene {
         sprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
 
         obj1 = new GameObject("Object 1",
-                new Transform(new Vector2f(100,100), new Vector2f(256,256)));
+                new Transform(new Vector2f(100,100), new Vector2f(256,256)), 1);
         obj1.addComponent(new SpriteRenderer(sprites.getSprite(0)));
         this.addGameObjectToScene(obj1);
 
-//        GameObject obj2 = new GameObject("Object 2",
-//                new Transform(new Vector2f(400,100), new Vector2f(256,256)));
-//        obj2.addComponent(new SpriteRenderer(sprites.getSprite(15)));
-//        this.addGameObjectToScene(obj2);
+        GameObject obj2 = new GameObject("Object 2",
+                new Transform(new Vector2f(400,100), new Vector2f(256,256)), 0);
+        obj2.addComponent(new SpriteRenderer(sprites.getSprite(15)));
+        this.addGameObjectToScene(obj2);
 
         //Object 1 Mario, 2 Mushroom
 
