@@ -3,8 +3,8 @@ package jade;
 import imgui.ImGui;
 
 public class ImGuiWindow {
-    private boolean showText = false;
-    public void imgui(){
+    private static boolean showText = false;
+    public static void imgui(){
         ImGui.begin("Hello, world!");
 
         if (ImGui.button("Show Text")) {

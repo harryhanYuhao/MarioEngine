@@ -22,11 +22,12 @@ public class Window {
     private static Window window = null;
 
     private static Scene currentScene;
+    private ImGuiLayer imGuiLayer;
 
     private Window(){
         this.width = 1920;
         this.height = 1080;
-        this.title = "Mario";
+        this.title = "Jade";
     } // constructor: setting the width, height, and title.
 
     public static void changeScene(int newScene){
@@ -114,6 +115,9 @@ public class Window {
 
         GL.createCapabilities();
 
+        this.imGuiLayer = new ImGuiLayer(glfwWindow);
+        this.imGuiLayer.init();
+
         glEnable(GL_BLEND);
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -136,6 +140,7 @@ public class Window {
             if (currentScene != null){
                 if (dt >= 0.0f){
                     currentScene.update(dt);
+                    imGuiLayer.run();
                 }
             }
 

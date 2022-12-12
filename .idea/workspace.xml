@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e53e17b3-c6d2-4619-afef-d7cfb7ca0b5c" name="Changes" comment=".gitignore">
-      <change afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/imgui-app-1.86.4-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/imgui-app-1.86.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/imgui-binding-1.86.4-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/imgui-binding-1.86.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/imgui-lwjgl3-1.86.4-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/imgui-lwjgl3-1.86.4-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/imgui-lwjgl3-1.86.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/libimgui-java64.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jade/ImGuiWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/jade/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/jade/Window.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/ImGuiWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/ImGuiWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jade/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +87,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ImGuiLayer">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="ImGuiLayer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jade.ImGuiLayer" />
       <module name="Mario.main" />
@@ -168,8 +160,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ImGuiLayer" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ImGuiLayer" />
         <item itemvalue="Application.ImGuiTry" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Gradle.Mario [test]" />
@@ -207,7 +199,7 @@
       <workItem from="1670772587160" duration="134000" />
       <workItem from="1670772795281" duration="509000" />
       <workItem from="1670793641026" duration="3843000" />
-      <workItem from="1670840535506" duration="4039000" />
+      <workItem from="1670840535506" duration="5792000" />
     </task>
     <task id="LOCAL-00001" summary=".gitignore">
       <created>1670003282085</created>
