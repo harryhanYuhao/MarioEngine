@@ -10,7 +10,8 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 
 public class Window {
-    final private int width, height;
+    private int width;
+    private int height;
     final private String title;
     private long glfwWindow;
 
@@ -58,10 +59,6 @@ public class Window {
         return get().currentScene;
     }
 
-    public static float getWidth() {
-        return get().width;
-    }
-
     public void run () {
         System.out.println("Hello LWJGL" + Version.getVersion()+"!");
 
@@ -102,6 +99,10 @@ public class Window {
         glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
         glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
         glfwSetKeyCallback(glfwWindow, KeyListener::keyCallback);
+        glfwSetWindowSizeCallback(glfwWindow, (w, newWidth, newHeight) -> {
+            this.width = newWidth;
+            this.height = newHeight;
+        });
 
         // Make the OpenGL context current
         glfwMakeContextCurrent(glfwWindow);
@@ -145,4 +146,21 @@ public class Window {
             beginTime = endTime;
         }
     }
+
+    public static int getHeight() {
+        return get().height;
+    }
+
+    public static float getWidth() {
+        return get().width;
+    }
+
+    public static void setWidth(int width) {
+        get().width = width;
+    }
+
+public static void setHeight(int height) {
+        get().height = height;
+    }
+
 }

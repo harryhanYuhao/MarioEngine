@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e53e17b3-c6d2-4619-afef-d7cfb7ca0b5c" name="Changes" comment=".gitignore">
+      <change afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/imgui-app-1.86.4-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/imgui-app-1.86.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/imgui-binding-1.86.4-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/imgui-binding-1.86.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/imgui-lwjgl3-1.86.4-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/imgui-lwjgl3-1.86.4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/imgui-lwjgl3-1.86.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/libimgui-java64.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jade/ImGuiWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jade/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jade/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/LevelEditorScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/jade/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/jade/Window.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jade/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +73,7 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/yuhao/study/coding/IdeaProjects/Practice/Debug/MarioYoutube-c115151dcb110eb5a413d1b97a7b2852a472e45f&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/yuhao/study/coding/IdeaProjects/Practice/2DGameEngine/Mario&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -80,14 +87,39 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.ImGuiLayer">
+    <configuration name="ImGuiLayer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="jade.ImGuiLayer" />
+      <module name="Mario.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jade.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ImGuiTry" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ImGuiTry" />
+      <module name="Mario.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Mario.main" />
+      <option name="PROGRAM_PARAMETERS" value="java.library.path=libs" />
       <option name="VM_PARAMETERS" value="-ea" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -105,27 +137,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="Mario [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="dependencies" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
     </configuration>
     <configuration name="Mario [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -149,17 +160,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.ImGuiLayer" />
+      <item itemvalue="Application.ImGuiTry" />
       <item itemvalue="Application.Test" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="Gradle.Mario [dependencies]" />
       <item itemvalue="Gradle.Mario [test]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ImGuiLayer" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ImGuiTry" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Gradle.Mario [test]" />
-        <item itemvalue="Gradle.Mario [dependencies]" />
       </list>
     </recent_temporary>
   </component>
@@ -189,7 +202,12 @@
       <workItem from="1670494976192" duration="3493000" />
       <workItem from="1670529318978" duration="4190000" />
       <workItem from="1670619646399" duration="4358000" />
-      <workItem from="1670702060469" duration="3881000" />
+      <workItem from="1670702060469" duration="4183000" />
+      <workItem from="1670765550716" duration="174000" />
+      <workItem from="1670772587160" duration="134000" />
+      <workItem from="1670772795281" duration="509000" />
+      <workItem from="1670793641026" duration="3843000" />
+      <workItem from="1670840535506" duration="4039000" />
     </task>
     <task id="LOCAL-00001" summary=".gitignore">
       <created>1670003282085</created>
