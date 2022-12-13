@@ -48,6 +48,7 @@ public abstract class Scene {
         if (activeGameObject != null){
             ImGui.begin("Inspector");
             activeGameObject.imgui();
+            ImGui.end();
         }
     }
 
