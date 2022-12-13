@@ -115,6 +115,7 @@ public class Window {
 
         GL.createCapabilities();
 
+        // Create imGui
         this.imGuiLayer = new ImGuiLayer(glfwWindow);
         this.imGuiLayer.init();
 
