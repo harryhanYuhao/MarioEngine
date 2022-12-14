@@ -13,7 +13,9 @@ public class Texture {
     private String filePath;
     private int texID;
     private int width, height;
-    public Texture(String filepath){
+    public Texture(){}
+
+    public void init(String filepath){
         this.filePath = filepath;
 
         //Generate texture on GPU

@@ -91,7 +91,7 @@ public class ImGuiLayer {
             imGuiGlfw.newFrame();
             ImGui.newFrame();
             currentScene.sceneImGui();
-            ImGui.showDemoWindow();
+            //ImGui.showDemoWindow();
             //jade.ImGuiWindow.imgui();
             ImGui.render();
             imGuiGl3.renderDrawData(ImGui.getDrawData());

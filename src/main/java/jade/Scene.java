@@ -1,8 +1,13 @@
 package jade;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import imgui.ImGui;
 import renderer.Renderer;
 
+import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +19,7 @@ public abstract class Scene {
     private boolean isRunning = false;
     protected List<GameObject> gameObjects = new ArrayList<GameObject>();
     protected GameObject activeGameObject = null;
+    protected boolean levelLoaded = false;
     public Scene(){
     }
 
@@ -54,5 +60,44 @@ public abstract class Scene {
     }
 
     public void imgui(){
+    }
+
+    public void saveExit(){
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Component.class, new ComponentDeserializer())
+                .registerTypeAdapter(GameObject.class, new GameObjectDeserializer())
+                .create();
+
+        try {
+            FileWriter writer = new FileWriter("assets/levels/level1.json");
+            writer.write(gson.toJson(this.gameObjects));
+            writer.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void load(){
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Component.class, new ComponentDeserializer())
+                .registerTypeAdapter(GameObject.class, new GameObjectDeserializer())
+                .create();
+
+        String inFile = "";
+        try {
+            inFile = new String(Files.readAllBytes(Paths.get("assets/levels/level1.json")));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        if (!inFile.equals("")){
+            GameObject[] gameObjects = gson.fromJson(inFile, GameObject[].class);
+            for (GameObject go: gameObjects){
+                this.addGameObjectToScene(go);
+            }
+            this.levelLoaded = true;
+        }
     }
 }

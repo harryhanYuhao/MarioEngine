@@ -1,5 +1,8 @@
 package jade;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import components.Rigidbody;
 import components.Sprite;
 import components.SpriteRenderer;
 import components.Spritesheet;
@@ -8,9 +11,12 @@ import org.joml.Vector2f;
 import org.joml.Vector4f;
 import util.AssetPool;
 
+import jade.ComponentDeserializer;
+
 public class LevelEditorScene extends Scene {
     private GameObject obj1;
     private Spritesheet sprites;
+    SpriteRenderer obj2SpriteRenderer = new SpriteRenderer();
 
     public LevelEditorScene(){
     }
@@ -18,24 +24,32 @@ public class LevelEditorScene extends Scene {
     @Override
     public void init(){
         loadResources();
-
         this.camera = new Camera(new Vector2f(0,0));
+
+        if (levelLoaded){
+            this.activeGameObject=gameObjects.get(0);
+            return;
+        }
 
         sprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
 
-        obj1 = new GameObject("Object 1",
+        GameObject obj2 = new GameObject("Object 1",
                 new Transform(new Vector2f(100,100), new Vector2f(256,256)), 1);
-        obj1.addComponent(new SpriteRenderer(sprites.getSprite(0)));
-        this.addGameObjectToScene(obj1);
 
-        GameObject obj2 = new GameObject("Object 2",
-                new Transform(new Vector2f(400,100), new Vector2f(256,256)), 0);
-        obj2.addComponent(new SpriteRenderer(sprites.getSprite(15)));
+        obj2SpriteRenderer.setColor(new Vector4f(1,0,0,1));
+        obj2.addComponent(obj2SpriteRenderer);
         this.addGameObjectToScene(obj2);
 
-        //Object 1 Mario, 2 Mushroom
+        GameObject obj1 = new GameObject("Object 2",
+                new Transform(new Vector2f(400,100), new Vector2f(256,256)), 0);
+        SpriteRenderer obj1SpriteRenderer = new SpriteRenderer();
+        obj1SpriteRenderer.setSprite(sprites.getSprite(0));
 
-        this.activeGameObject=obj1;
+        obj1.addComponent(obj1SpriteRenderer);
+
+        obj2.addComponent(new Rigidbody());
+
+        this.addGameObjectToScene(obj1);
     }
 
     private void loadResources(){
@@ -45,40 +59,28 @@ public class LevelEditorScene extends Scene {
                         16, 16, 26, 0));
     }
 
-    private int spriteIndex = 0;
-    private float spriteFlipTime = 0.25f;
-    private float spriteFlipTimeLeft = 0.0f;
+
     @Override
     public void update(float dt){
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .create();
+        //System.out.println(gson.toJson(obj2SpriteRenderer));
 
-        if (spriteFlipTimeLeft <= 0.0f){
-            spriteFlipTimeLeft = spriteFlipTime;
-            spriteIndex++;
-            if (spriteIndex >= 4){
-                spriteIndex = 0;
-            }
-            obj1.getComponent(SpriteRenderer.class).setSprite(sprites.getSprite(spriteIndex));
-        } else {
-            spriteFlipTimeLeft -= dt;
-        }
-        obj1.transform.position.x+= 300 * dt;
 
-        System.out.println("FPS: " + 1.0f/dt);
+        //System.out.println("FPS: " + 1.0f/dt);
         for (GameObject go : this.gameObjects){
             go.update(dt);
         }
         this.renderer.render();
 
-        if (obj1.transform.position.x > 1200){
-            obj1.transform.position.x = 0;
-        }
     }
 
     @Override
     public void imgui(){
-        ImGui.begin("Level Editor");
-        ImGui.text("Hello World");
-        ImGui.end();
+//        ImGui.begin("Level Editor");
+//        ImGui.text("Hello World");
+//        ImGui.end();
     }
 }
 

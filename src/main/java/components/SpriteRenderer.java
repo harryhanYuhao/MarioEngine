@@ -9,23 +9,23 @@ import renderer.Texture;
 
 public class SpriteRenderer extends Component {
 
-    private Vector4f color;
+    private Vector4f color = new Vector4f(1.0f, 1.0f, 1.0f, 1.0f);
 
-    private Sprite sprite;
-    private Transform lastTransform;
-    private boolean isDirty = false;
+    private Sprite sprite = new Sprite();
+    private transient Transform lastTransform; // Transient means it won't be serialized by Gson
+    private transient boolean isDirty = true;
 
-    public SpriteRenderer(Vector4f color) {
-        this.color = color;
-        this.sprite = new Sprite(null);
-        isDirty = true;
-    }
-
-    public SpriteRenderer(Sprite sprite) {
-        this.sprite = sprite;
-        this.color = new Vector4f(1, 1, 1, 1);
-        isDirty = true;
-    }
+//    public SpriteRenderer(Vector4f color) {
+//        this.color = color;
+//        this.sprite = new Sprite(null);
+//        isDirty = true;
+//    }
+//
+//    public SpriteRenderer(Sprite sprite) {
+//        this.sprite = sprite;
+//        this.color = new Vector4f(1, 1, 1, 1);
+//        isDirty = true;
+//    }
 
     @Override
     public void start() {

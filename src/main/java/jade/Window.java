@@ -34,11 +34,13 @@ public class Window {
         switch (newScene){
             case 0:
                 currentScene = new LevelEditorScene();
+                currentScene.load();
                 currentScene.init();
                 currentScene.start();
                 break;
             case 1:
                 currentScene = new LevelScene();
+                currentScene.load();
                 currentScene.init();
                 currentScene.start();
                 break;
@@ -131,6 +133,7 @@ public class Window {
         double endTime;
         float dt = -1.0f;
 
+
         while (!glfwWindowShouldClose(glfwWindow)){
             // poll events
             glfwPollEvents();
@@ -151,6 +154,8 @@ public class Window {
             dt = (float)(endTime - beginTime);
             beginTime = endTime;
         }
+
+        currentScene.saveExit();
     }
 
     public static int getHeight() {
