@@ -6,9 +6,9 @@
         "type": "components.SpriteRenderer",
         "properties": {
           "color": {
-            "x": 0.7392739,
-            "y": 0.33425915,
-            "z": 0.33425915,
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0,
             "w": 1.0
           },
           "sprite": {
@@ -36,8 +36,8 @@
       {
         "type": "components.Rigidbody",
         "properties": {
-          "colliderType": 127,
-          "friction": 13.8,
+          "colliderType": 0,
+          "friction": 0.8,
           "velocity": {
             "x": 0.0,
             "y": 0.5,

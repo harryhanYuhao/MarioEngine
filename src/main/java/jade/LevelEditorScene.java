@@ -2,16 +2,11 @@ package jade;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import components.Rigidbody;
-import components.Sprite;
-import components.SpriteRenderer;
-import components.Spritesheet;
+import components.*;
 import imgui.ImGui;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import util.AssetPool;
-
-import jade.ComponentDeserializer;
 
 public class LevelEditorScene extends Scene {
     private GameObject obj1;
@@ -27,7 +22,7 @@ public class LevelEditorScene extends Scene {
         this.camera = new Camera(new Vector2f(0,0));
 
         if (levelLoaded){
-            this.activeGameObject=gameObjects.get(0);
+            //this.activeGameObject=gameObjects.get(0);
             return;
         }
 
@@ -38,7 +33,7 @@ public class LevelEditorScene extends Scene {
 
         obj2SpriteRenderer.setColor(new Vector4f(1,0,0,1));
         obj2.addComponent(obj2SpriteRenderer);
-        this.addGameObjectToScene(obj2);
+
 
         GameObject obj1 = new GameObject("Object 2",
                 new Transform(new Vector2f(400,100), new Vector2f(256,256)), 0);
@@ -49,7 +44,10 @@ public class LevelEditorScene extends Scene {
 
         obj2.addComponent(new Rigidbody());
 
+        this.addGameObjectToScene(obj2);
         this.addGameObjectToScene(obj1);
+        activeGameObject = obj2;
+
     }
 
     private void loadResources(){

@@ -15,3 +15,19 @@ See Dear imgui documentation in GitHub.
 
 14 Dec 2022:
 Serilization with reflection by Gson.
+imgui now can be used in leveleditor scene to change properties of the activeGameObject. The data is stored in
+"assets/levels/level1.json" file. The next time program runs the data will be automatically deserialized and
+loaded into each game object.
+Gson serialization and deserialization is customly defined in GameObjectDeserializer and ComponentDesrializer.
+So far we have not implement how to change activeGameObject.
+
+The components class was edited so that when a new component is added to gameobject, imgui will have roll bar
+to change the component's properties.
+
+For some reason when a new component is added to the gameobject, the level1.jason file will be be updated.
+Thus to upgrade the change I have to manually wipe the file and run twice (the first time to generate the file
+only after the file is generated the imgui window will be updated)
+
+Bug fixed: I have added/modified the component after its gameobject is added to scene.
+The situation now is: the gameobject will be corrected loaded the first time. However, if after loading
+the properties of gameobject is manually changed, we have to wipe the jason file and run the program agine.

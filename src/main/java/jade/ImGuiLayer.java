@@ -97,13 +97,13 @@ public class ImGuiLayer {
             imGuiGl3.renderDrawData(ImGui.getDrawData());
 
 
-            // For Multiple View ports Does not seem to work
-            if (ImGui.getIO().hasConfigFlags(ImGuiConfigFlags.ViewportsEnable)) {
-                final long backupWindowPtr = GLFW.glfwGetCurrentContext();
-                ImGui.updatePlatformWindows();
-                ImGui.renderPlatformWindowsDefault();
-                GLFW.glfwMakeContextCurrent(backupWindowPtr);
-            }
+            // For Multiple View ports Does not seem to work on linux
+//            if (ImGui.getIO().hasConfigFlags(ImGuiConfigFlags.ViewportsEnable)) {
+//                final long backupWindowPtr = GLFW.glfwGetCurrentContext();
+//                ImGui.updatePlatformWindows();
+//                ImGui.renderPlatformWindowsDefault();
+//                GLFW.glfwMakeContextCurrent(backupWindowPtr);
+//            }
     }
 
 }
