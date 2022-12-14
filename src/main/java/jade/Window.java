@@ -141,7 +141,7 @@ public class Window {
             if (currentScene != null){
                 if (dt >= 0.0f){
                     currentScene.update(dt);
-                    imGuiLayer.run();
+                    imGuiLayer.run(currentScene);
                 }
             }
 

@@ -7,8 +7,6 @@ doc/*.txt
 # ignore all pdf files in the doc/ directory and any of its sub directories
 doc/**/*/pdf
 
-
-
 # ignore all files in the build/ directory
 build/**
 
@@ -20,3 +18,4 @@ out
 
 .idea/**
 
+imgui.ini

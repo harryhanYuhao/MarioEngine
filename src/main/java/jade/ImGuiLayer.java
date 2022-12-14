@@ -78,21 +78,21 @@ public class ImGuiLayer {
     private void initImGui(){
         ImGui.createContext();
         ImGuiIO io = ImGui.getIO();
+        io.setIniFilename("imgui.ini");
 //        io.addConfigFlags(ImGuiConfigFlags.ViewportsEnable);  // Enable Multi-Viewport / Platform Windows
 
         // Enable Keyboard Controls
         io.addConfigFlags(ImGuiConfigFlags.NavEnableKeyboard);
 
-        initFonts(ImGui.getIO());
-
-
+        initFonts(io);
     }
 
-    public void run(){
+    public void run(Scene currentScene){
             imGuiGlfw.newFrame();
             ImGui.newFrame();
+            currentScene.sceneImGui();
             ImGui.showDemoWindow();
-            jade.ImGuiWindow.imgui();
+            //jade.ImGuiWindow.imgui();
             ImGui.render();
             imGuiGl3.renderDrawData(ImGui.getDrawData());
 

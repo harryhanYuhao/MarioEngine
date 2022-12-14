@@ -3,6 +3,7 @@ package jade;
 import components.Sprite;
 import components.SpriteRenderer;
 import components.Spritesheet;
+import imgui.ImGui;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import util.AssetPool;
@@ -34,7 +35,7 @@ public class LevelEditorScene extends Scene {
 
         //Object 1 Mario, 2 Mushroom
 
-
+        this.activeGameObject=obj1;
     }
 
     private void loadResources(){
@@ -49,7 +50,6 @@ public class LevelEditorScene extends Scene {
     private float spriteFlipTimeLeft = 0.0f;
     @Override
     public void update(float dt){
-
 
         if (spriteFlipTimeLeft <= 0.0f){
             spriteFlipTimeLeft = spriteFlipTime;
@@ -72,6 +72,13 @@ public class LevelEditorScene extends Scene {
         if (obj1.transform.position.x > 1200){
             obj1.transform.position.x = 0;
         }
+    }
+
+    @Override
+    public void imgui(){
+        ImGui.begin("Level Editor");
+        ImGui.text("Hello World");
+        ImGui.end();
     }
 }
 

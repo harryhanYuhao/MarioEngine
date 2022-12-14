@@ -50,6 +50,7 @@ public abstract class Scene {
             activeGameObject.imgui();
             ImGui.end();
         }
+        imgui();
     }
 
     public void imgui(){
