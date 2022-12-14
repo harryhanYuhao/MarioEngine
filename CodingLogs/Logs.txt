@@ -8,3 +8,10 @@ Added and configured imgui interface.
 There has been a problem with git version control and today's works were almost lost forever,
 luckily I have managed to retrieve them.
 Take home message: be careful with git and make sure to commit often.
+
+Java imgui is rather peculiar: it does not have a good documentation. However, as it is based on dear Imgui
+written in C++, many code can be transferred into java.
+See Dear imgui documentation in GitHub.
+
+14 Dec 2022:
+Serilization with reflection by Gson.
