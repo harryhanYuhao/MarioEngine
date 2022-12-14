@@ -20,6 +20,7 @@ public abstract class Scene {
     protected List<GameObject> gameObjects = new ArrayList<GameObject>();
     protected GameObject activeGameObject = null;
     protected boolean levelLoaded = false;
+
     public Scene(){
     }
 
