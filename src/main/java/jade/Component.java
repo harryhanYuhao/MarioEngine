@@ -13,7 +13,9 @@ public abstract class Component {
     }
     public void update(float dt){}
 
+
     public void imgui(){
+        // Component imgui: generate imgui with roll bar for each component of the game object
         try {
             Field [] fields = this.getClass().getDeclaredFields();
             for (Field field : fields){
