@@ -1,4 +1,8 @@
-package jade;
+package scenes;
+
+import jade.KeyListener;
+import jade.Window;
+import scenes.Scene;
 
 import java.awt.event.KeyEvent;
 

@@ -1,10 +1,12 @@
-package jade;
+package scenes;
 
 import components.*;
 import imgui.ImGui;
 import imgui.ImVec2;
+import jade.*;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
+import scenes.Scene;
 import util.AssetPool;
 
 public class LevelEditorScene extends Scene {
@@ -12,6 +14,8 @@ public class LevelEditorScene extends Scene {
     private GameObject obj2;
     private Spritesheet sprites;
     SpriteRenderer obj2SpriteRenderer = new SpriteRenderer();
+
+    MouseControls mouseControls = new MouseControls();
 
     public LevelEditorScene(){
     }
@@ -30,17 +34,17 @@ public class LevelEditorScene extends Scene {
             obj2.addComponent(obj2SpriteRenderer);
 
 
-            obj1 = new GameObject("Object 2",
-                    new Transform(new Vector2f(400, 100), new Vector2f(256, 256)), 0);
-            SpriteRenderer obj1SpriteRenderer = new SpriteRenderer();
-            obj1SpriteRenderer.setSprite(sprites.getSprite(0));
-
-            obj1.addComponent(obj1SpriteRenderer);
+//            obj1 = new GameObject("Object 2",
+//                    new Transform(new Vector2f(400, 100), new Vector2f(256, 256)), 0);
+//            SpriteRenderer obj1SpriteRenderer = new SpriteRenderer();
+//            obj1SpriteRenderer.setSprite(sprites.getSprite(0));
+//
+//            obj1.addComponent(obj1SpriteRenderer);
 
             obj2.addComponent(new Rigidbody());
 
             this.addGameObjectToScene(obj2);
-            this.addGameObjectToScene(obj1);
+//            this.addGameObjectToScene(obj1);
         }
         this.activeGameObject=gameObjects.get(0);
     }
@@ -54,7 +58,8 @@ public class LevelEditorScene extends Scene {
 
     @Override
     public void update(float dt){
-        System.out.println(MouseListener.getOrthoX()+", "+MouseListener.getOrthoY());
+        mouseControls.update(dt);
+//        System.out.println(MouseListener.getOrthoX()+", "+MouseListener.getOrthoY());
 
         //System.out.println("FPS: " + 1.0f/dt);
         for (GameObject go : this.gameObjects){
@@ -87,10 +92,12 @@ public class LevelEditorScene extends Scene {
 
             if (ImGui.imageButton(id, spriteWidth, spriteHeight,
                     texCoords[0].x, texCoords[0].y, texCoords[2].x, texCoords[2].y)) {
-                System.out.println("Button " + i + "clicked");
+                GameObject object = Prefabs.generateSpriteObject(sprite, spriteWidth, spriteHeight);
+                // Attach to mouse cursor
+                mouseControls.pickUpObject(object);
             }
-
             ImGui.popID();
+
             ImVec2 lastButtonPos = new ImVec2();
             ImGui.getItemRectMax(lastButtonPos);
             float lastButtonX2 = lastButtonPos.x;

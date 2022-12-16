@@ -1,6 +1,4 @@
 package components;
-import jade.Component;
-import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
