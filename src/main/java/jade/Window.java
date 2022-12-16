@@ -3,6 +3,7 @@ package jade;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
+import renderer.DebugDraw;
 import scenes.LevelEditorScene;
 import scenes.LevelScene;
 import scenes.Scene;
@@ -138,11 +139,14 @@ public class Window {
             // poll events
             glfwPollEvents();
 
+            DebugDraw.beginFrame();
+
             glClearColor(0.5f, 0.5f, 0.5f, 0.5f);
             glClear(GL_COLOR_BUFFER_BIT);
 
             if (currentScene != null){
                 if (dt >= 0.0f){
+                    DebugDraw.draw();
                     currentScene.update(dt);
                     imGuiLayer.run(currentScene);
                 }

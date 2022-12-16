@@ -5,7 +5,9 @@ import imgui.ImGui;
 import imgui.ImVec2;
 import jade.*;
 import org.joml.Vector2f;
+import org.joml.Vector3f;
 import org.joml.Vector4f;
+import renderer.DebugDraw;
 import scenes.Scene;
 import util.AssetPool;
 
@@ -24,6 +26,8 @@ public class LevelEditorScene extends Scene {
     public void init(){
         loadResources();
         this.camera = new Camera(new Vector2f(0,0));
+//        DebugDraw.addLine2D(new Vector2f(0,0), new Vector2f(800,800),
+//                new Vector3f(1,0,0), 120);
         sprites = AssetPool.getSpritesheet("assets/images/decorationsAndBlocks.png");
 
         if (!levelLoaded) {
@@ -47,7 +51,8 @@ public class LevelEditorScene extends Scene {
 //            this.addGameObjectToScene(obj1);
         }
         this.activeGameObject=gameObjects.get(0);
-    }
+
+        }
 
     private void loadResources(){
         AssetPool.getShader("assets/shaders/default.glsl");
@@ -56,12 +61,17 @@ public class LevelEditorScene extends Scene {
                         16, 16, 81, 0));
     }
 
+    float t = 0.0f;
     @Override
     public void update(float dt){
         mouseControls.update(dt);
 //        System.out.println(MouseListener.getOrthoX()+", "+MouseListener.getOrthoY());
 
         //System.out.println("FPS: " + 1.0f/dt);
+        float x = ((float)Math.sin(t) * 100.0f)+600.0f;
+        float y = ((float)Math.cos(t) * 100.0f)+400.0f;
+        t += 0.05f;
+        DebugDraw.addLine2D(new Vector2f(600, 400), new Vector2f(x, y), new Vector3f(1, 0, 0), 10);
         for (GameObject go : this.gameObjects){
             go.update(dt);
         }
