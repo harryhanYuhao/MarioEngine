@@ -8,8 +8,8 @@ import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 import renderer.DebugDraw;
-import scenes.Scene;
 import util.AssetPool;
+import util.Settings;
 
 public class LevelEditorScene extends Scene {
     private GameObject obj1;
@@ -18,12 +18,16 @@ public class LevelEditorScene extends Scene {
     SpriteRenderer obj2SpriteRenderer = new SpriteRenderer();
 
     MouseControls mouseControls = new MouseControls();
+    GameObject levelEditorStuff = new GameObject("LevelEditor", new Transform(new Vector2f()), 0);
 
     public LevelEditorScene(){
     }
 
     @Override
     public void init(){
+        levelEditorStuff.addComponent(new MouseControls());
+        levelEditorStuff.addComponent(new GridLines());
+
         loadResources();
         this.camera = new Camera(new Vector2f(0,0));
 //        DebugDraw.addLine2D(new Vector2f(0,0), new Vector2f(800,800),
@@ -61,17 +65,17 @@ public class LevelEditorScene extends Scene {
                         16, 16, 81, 0));
     }
 
-    float t = 0.0f;
+    float rotation = 0;
     @Override
     public void update(float dt){
-        mouseControls.update(dt);
-//        System.out.println(MouseListener.getOrthoX()+", "+MouseListener.getOrthoY());
 
-        //System.out.println("FPS: " + 1.0f/dt);
-        float x = ((float)Math.sin(t) * 100.0f)+600.0f;
-        float y = ((float)Math.cos(t) * 100.0f)+400.0f;
-        t += 0.05f;
-        DebugDraw.addLine2D(new Vector2f(600, 400), new Vector2f(x, y), new Vector3f(1, 0, 0), 10);
+        levelEditorStuff.update(dt);
+//        System.out.println(MouseListener.getOrthoX()+", "+MouseListener.getOrthoY());
+        DebugDraw.addBox2D(new Vector2f(400,400),
+                new Vector2f(32,64), rotation, new Vector3f(1,0,0), 1);
+        rotation += dt;
+
+        System.out.println("FPS: " + 1.0f/dt);
         for (GameObject go : this.gameObjects){
             go.update(dt);
         }
@@ -100,11 +104,12 @@ public class LevelEditorScene extends Scene {
             ImGui.pushID(i); // otherwise all buttons would have the same ID
             // ImGui use the image's Id as their texture's id.
 
+            //gabe switched texCoords[0].x and texCoords[2].x
             if (ImGui.imageButton(id, spriteWidth, spriteHeight,
                     texCoords[0].x, texCoords[0].y, texCoords[2].x, texCoords[2].y)) {
-                GameObject object = Prefabs.generateSpriteObject(sprite, spriteWidth, spriteHeight);
+                GameObject object = Prefabs.generateSpriteObject(sprite, Settings.GRID_WIDTH, Settings.GRID_HEIGHT);
                 // Attach to mouse cursor
-                mouseControls.pickUpObject(object);
+                levelEditorStuff.getComponent(MouseControls.class).pickUpObject(object);
             }
             ImGui.popID();
 

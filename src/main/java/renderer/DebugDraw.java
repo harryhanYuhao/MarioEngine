@@ -44,7 +44,7 @@ public class DebugDraw {
         glVertexAttribPointer(1, 3, GL_FLOAT, false, 6 * Float.BYTES, 3 * Float.BYTES);
         glEnableVertexAttribArray(1);
 
-        glLineWidth(3.0f);
+        glLineWidth(2.0f);
     }
 
     public static void beginFrame() {
@@ -125,5 +125,40 @@ public class DebugDraw {
     public static void addLine2D(Vector2f from, Vector2f to, Vector3f color, int lifetime) {
         if (lines.size() >= MAX_LINES) return;
         DebugDraw.lines.add(new Line2D(from, to, color, lifetime));
+    }
+
+    public static void addBox2D(Vector2f center, Vector2f dimensions,
+                                float rotation, Vector3f color, int lifetime) {
+        if (lines.size() >= MAX_LINES) return;;
+        Vector2f min = new Vector2f(center).sub(new Vector2f(dimensions).mul(0.5f));
+        Vector2f max = new Vector2f(center).add(new Vector2f(dimensions).mul(0.5f));
+
+        Vector2f[] rotationalMatrix= {
+            new Vector2f((float)Math.cos(rotation), -(float)Math.sin(rotation)),
+            new Vector2f((float)Math.sin(rotation), (float)Math.cos(rotation))
+        };
+
+
+        Vector2f[] vertices = new Vector2f[] {
+            new Vector2f(min.x, min.y),
+            new Vector2f(min.x, max.y),
+            new Vector2f(max.x, max.y),
+            new Vector2f(max.x, min.y)
+        };
+
+        if (rotation !=0.0f){
+            for (Vector2f vertex : vertices) {
+                float tmpx = vertex.x - center.x;
+                float tmpy = vertex.y- center.y;
+                vertex.x = tmpx * rotationalMatrix[0].x + tmpy * rotationalMatrix[0].y + center.x;
+                vertex.y = tmpx * rotationalMatrix[1].x + tmpy * rotationalMatrix[1].y + center.y;
+            }
+        }
+
+        addLine2D(vertices[0], vertices[1], color, lifetime);
+        addLine2D(vertices[0], vertices[3], color, lifetime);
+        addLine2D(vertices[1], vertices[2], color, lifetime);
+        addLine2D(vertices[2], vertices[3], color, lifetime);
+
     }
 }
