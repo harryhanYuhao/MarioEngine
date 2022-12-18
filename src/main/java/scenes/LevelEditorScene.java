@@ -1,6 +1,7 @@
 package scenes;
 
 import components.*;
+import editor.GameViewWindow;
 import imgui.ImGui;
 import imgui.ImVec2;
 import jade.*;
@@ -80,6 +81,10 @@ public class LevelEditorScene extends Scene {
     float timer = 0;
     @Override
     public void update(float dt){
+//        System.out.println("x     " + GameViewWindow.largestsize.x);
+//        System.out.println("y     "+ GameViewWindow.largestsize.y);
+        System.out.println("x     " + MouseListener.getX() +"   " +GameViewWindow.largestsize.x);
+        //System.out.println("y     "+ MouseListener.getOrthoY());
 
         levelEditorStuff.update(dt);
 //        DebugDraw.addBox2D(new Vector2f(400,400),

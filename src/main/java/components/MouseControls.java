@@ -1,6 +1,6 @@
 package components;
 
-import components.Component;
+import editor.GameViewWindow;
 import jade.GameObject;
 import jade.MouseListener;
 import jade.Window;
@@ -20,16 +20,17 @@ public class MouseControls extends Component {
     }
 
     public void update(float dt) {
-        if (holdingObject != null) {
-            holdingObject.transform.position.x =
-                MouseListener.getOrthoX() - 47;
-            holdingObject.transform.position.y =
-                MouseListener.getOrthoY() - 47;
-            holdingObject.transform.position.x = ((int)((holdingObject.transform.position.x+22)/Settings.GRID_WIDTH) * Settings.GRID_WIDTH);
-            holdingObject.transform.position.y = ((int)((holdingObject.transform.position.y+32)/Settings.GRID_HEIGHT) * Settings.GRID_HEIGHT);
-            if (MouseListener.mouseButtonDown(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
-                place();
+            if (holdingObject != null) {
+                holdingObject.transform.position.x =
+                        MouseListener.getOrthoX() ;
+                holdingObject.transform.position.y =
+                        MouseListener.getOrthoY() ;
+                holdingObject.transform.position.x = ((int) ((holdingObject.transform.position.x) / Settings.GRID_WIDTH) * Settings.GRID_WIDTH);
+                holdingObject.transform.position.y = ((int) ((holdingObject.transform.position.y) / Settings.GRID_HEIGHT) * Settings.GRID_HEIGHT);
+                if (MouseListener.mouseButtonDown(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
+                    place();
+                }
             }
-        }
+
     }
 }
