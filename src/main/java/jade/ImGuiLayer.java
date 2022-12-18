@@ -1,13 +1,15 @@
 package jade;
 
+import editor.GameViewWindow;
 import imgui.ImFontConfig;
 import imgui.ImGuiIO;
+import imgui.flag.*;
 import imgui.gl3.ImGuiImplGl3;
 import imgui.glfw.ImGuiImplGlfw;
 import imgui.ImGui;
-import imgui.flag.ImGuiConfigFlags;
 
 import imgui.*;
+import imgui.type.ImBoolean;
 import scenes.Scene;
 
 
@@ -66,6 +68,7 @@ public class ImGuiLayer {
 
         // Enable Keyboard Controls
         io.addConfigFlags(ImGuiConfigFlags.NavEnableKeyboard);
+        io.setConfigFlags(ImGuiConfigFlags.DockingEnable);
 
         initFonts(io);
     }
@@ -73,9 +76,12 @@ public class ImGuiLayer {
     public void run(Scene currentScene){
             imGuiGlfw.newFrame();
             ImGui.newFrame();
+            setupDockSpace();
             currentScene.sceneImGui();
             //ImGui.showDemoWindow();
             //jade.ImGuiWindow.imgui();
+            GameViewWindow.imgui();
+            ImGui.end();
             ImGui.render();
             imGuiGl3.renderDrawData(ImGui.getDrawData());
 
@@ -87,6 +93,24 @@ public class ImGuiLayer {
 //                ImGui.renderPlatformWindowsDefault();
 //                GLFW.glfwMakeContextCurrent(backupWindowPtr);
 //            }
+    }
+
+    private void setupDockSpace() {
+        int windowFlags = ImGuiWindowFlags.MenuBar | ImGuiWindowFlags.NoDocking;
+
+        ImGui.setNextWindowPos(0, 0, ImGuiCond.Always);
+        ImGui.setNextWindowSize(Window.getWidth(), Window.getHeight());
+        ImGui.pushStyleVar(ImGuiStyleVar.WindowRounding, 0f);
+        ImGui.pushStyleVar(ImGuiStyleVar.WindowBorderSize, 0f);
+        windowFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoCollapse
+                | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove
+                | ImGuiWindowFlags.NoBringToFrontOnFocus | ImGuiWindowFlags.NoNavFocus;
+
+        ImGui.begin("DockSpace", new ImBoolean(true), windowFlags);
+        ImGui.popStyleVar(2);
+
+        //DockSpace
+        ImGui.dockSpace(ImGui.getID("DockSpace"));
     }
 
 }

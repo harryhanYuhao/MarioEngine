@@ -4,6 +4,7 @@ import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 import renderer.DebugDraw;
+import renderer.Framebuffer;
 import scenes.LevelEditorScene;
 import scenes.LevelScene;
 import scenes.Scene;
@@ -27,6 +28,7 @@ public class Window {
 
     private static Scene currentScene;
     private ImGuiLayer imGuiLayer;
+    private Framebuffer framebuffer;
 
     private Window(){
         this.width = 1920;
@@ -111,7 +113,6 @@ public class Window {
         // Make the OpenGL context current
         glfwMakeContextCurrent(glfwWindow);
         //Enable v-syne
-        glfwSwapInterval(1);
 
         // make the window visable
         glfwShowWindow(glfwWindow);
@@ -125,7 +126,11 @@ public class Window {
         glEnable(GL_BLEND);
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 
+        this.framebuffer = new Framebuffer((int)getWidth(), (int) getHeight());
+        glViewport(0, 0, (int)getWidth(), (int)getHeight());
+
         Window.changeScene(0);
+        glfwSwapInterval(1);
     }
 
 
@@ -140,17 +145,21 @@ public class Window {
             glfwPollEvents();
 
             DebugDraw.beginFrame();
+            this.framebuffer.bind();
 
             glClearColor(0.5f, 0.5f, 0.5f, 0.5f);
             glClear(GL_COLOR_BUFFER_BIT);
 
             if (currentScene != null){
+
                 if (dt >= 0.0f){
                     DebugDraw.draw();
                     currentScene.update(dt);
-                    imGuiLayer.run(currentScene);
                 }
+                this.framebuffer.unbind();
+                imGuiLayer.run(currentScene);
             }
+
 
             glfwSwapBuffers(glfwWindow);
 
@@ -174,8 +183,15 @@ public class Window {
         get().width = width;
     }
 
-public static void setHeight(int height) {
+    public static void setHeight(int height) {
         get().height = height;
+    }
+
+    public static Framebuffer getFrameBuffer(){
+        return get().framebuffer;
+    }
+    public static float getTargetAspectRatio(){
+        return (float)getWidth() / (float)getHeight();
     }
 
 }

@@ -35,11 +35,11 @@ public class LevelEditorScene extends Scene {
         sprites = AssetPool.getSpritesheet("assets/images/decorationsAndBlocks.png");
 
         if (!levelLoaded) {
-            obj2 = new GameObject("Object 1",
-                    new Transform(new Vector2f(100, 100), new Vector2f(256, 256)), 1);
-
-            obj2SpriteRenderer.setColor(new Vector4f(1, 0, 0, 1));
-            obj2.addComponent(obj2SpriteRenderer);
+//            obj2 = new GameObject("Object 1",
+//                    new Transform(new Vector2f(100, 100), new Vector2f(256, 256)), 1);
+//
+//            obj2SpriteRenderer.setColor(new Vector4f(1, 0, 0, 1));
+//            obj2.addComponent(obj2SpriteRenderer);
 
 
 //            obj1 = new GameObject("Object 2",
@@ -49,33 +49,50 @@ public class LevelEditorScene extends Scene {
 //
 //            obj1.addComponent(obj1SpriteRenderer);
 
-            obj2.addComponent(new Rigidbody());
-
-            this.addGameObjectToScene(obj2);
+//            obj2.addComponent(new Rigidbody());
+//
+//            this.addGameObjectToScene(obj2);
 //            this.addGameObjectToScene(obj1);
         }
-        this.activeGameObject=gameObjects.get(0);
-
+        if (gameObjects.size() > 0) {
+            this.activeGameObject=gameObjects.get(0);
         }
+    }
 
     private void loadResources(){
         AssetPool.getShader("assets/shaders/default.glsl");
         AssetPool.addSpritesheet("assets/images/decorationsAndBlocks.png",
                 new Spritesheet(AssetPool.getTexture("assets/images/decorationsAndBlocks.png"),
                         16, 16, 81, 0));
+
+        for (GameObject g : gameObjects){
+            if (g.getComponent(SpriteRenderer.class) != null){
+                SpriteRenderer spr = g.getComponent(SpriteRenderer.class);
+                if (spr.getTexture() != null){
+                    spr.setTexture(AssetPool.getTexture(spr.getTexture().getFilePath()));
+                }
+            }
+        }
     }
 
     float rotation = 0;
+    int counter = 0;
+    float timer = 0;
     @Override
     public void update(float dt){
 
         levelEditorStuff.update(dt);
-//        System.out.println(MouseListener.getOrthoX()+", "+MouseListener.getOrthoY());
-        DebugDraw.addBox2D(new Vector2f(400,400),
-                new Vector2f(32,64), rotation, new Vector3f(1,0,0), 1);
-        rotation += dt;
+//        DebugDraw.addBox2D(new Vector2f(400,400),
+//                new Vector2f(32,64), rotation, new Vector3f(1,0,0), 1);
+//        rotation += dt;
 
-        System.out.println("FPS: " + 1.0f/dt);
+        timer += dt;
+        counter ++;
+        if (timer > 0.5f) {
+            System.out.println("FPS: " + (int)(10*counter/timer)/10.0f);
+            timer = 0;
+            counter = 0;
+        }
         for (GameObject go : this.gameObjects){
             go.update(dt);
         }
